@@ -42,14 +42,14 @@ below is where the icon on the tab in the browser goes
         <tbody>
           <tr>
             <td>
-              <input type="date" class="datePicker" name="job_date">
+              <input type="date" id="add_date">
             </td>
             <td>
-              <select id="crew" name="job_crew">
+              <select id="add_crew">
                 <optgroup label="Foreman">
                   <option value="gary">Gary</option>
                   <option value="ken">Ken</option>
-                  <option value="xcrew">The Incredible Bulk</option>
+                  <option value="x_crew">The Incredible Bulk</option>
                 </optgroup>
                 <optgroup label="Everyone">
                   <option value="all_crews">All Crews</option>
@@ -57,21 +57,21 @@ below is where the icon on the tab in the browser goes
               </select>
             </td>
             <td>
-              <input type="text" id="name" name="job_name">
+              <input type="text" id="add_name">
             </td>
             <td>
-              <input type="text" id="address" name="job_address">
+              <input type="text" id="add_address">
             </td>
             <td id="dollar">
               $
             </td>
             <td>
-              <input type="text" id="price" name="job_price">
+              <input type="text" id="add_price">
             </td>
             <td>
-              <select id="confirm" name="job_confirm">
+              <select id="add_confirm">
                 <option value="yes">Yes</option>
-                <option value="no"  selected="selected">No</option>    
+                <option value="no" selected="selected">No</option>    
                 <option value="message">Left Message</option>
               </select>
             </td>
@@ -84,7 +84,7 @@ below is where the icon on the tab in the browser goes
             <textarea rows="4" cols="78" placeholder="Notes..."></textarea>
           </td>
           <td>
-            <button id="add_button" class="add">Add</button>
+            <button id="add_button">Add</button>
           </td>
           <td>
             <p>Hit button to add to list below</p>
