@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Job List</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,700" type="text/css">
+<!--
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="http//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+below is where the icon on the tab in the browser goes
+	<link rel="shortcut icon" href="img/truck_logo_simple.png">
+-->
+</head>
+<body>
+<!-- HEADER CONTENT -->
+
+	<div class="header">
+		<div class="wrapper">
+          <img src="img/truck_logo_simple.png" alt="Modern Horticulture Services Logo">
+			<ul class="nav">
+				<li class="on"><a href="#">Schedule Jobs</a></li>
+			</ul>
+		</div>
+	</div>
+  
+	<div id="content">
+<!-- MAIN BODY CONTENT -->
+
+    <form action="index.html" method="post">
+      <fieldset style="box sizing: border-box;">
+        <table>
+          <caption>Add new job</caption>
+          <thead>
+            <th scope="col">Date</th>
+            <th scope="col">Crew</th>
+            <th scope="col">Customer Name</th>
+            <th scope="col">Address</th>
+            <th scope="col"> </th>
+            <th scope="col">Price</th>
+            <th scope="col">Confirmed</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+              <input type="date" class="datePicker" name="job_date">
+              </td>
+              <td>
+                <select id="crew" name="job_crew">
+                  <optgroup label="Foreman">
+                    <option value="gary">Gary</option>
+                    <option value="ken">Ken</option>
+                    <option value="xcrew">The Incredible Bulk</option>
+                  </optgroup>
+                  <optgroup label="Everyone">
+                    <option value="all_crews">All Crews</option>
+                  </optgroup>            
+                </select>
+              </td>
+              <td>
+                <input type="text" id="name" name="job_name">
+              </td>
+              <td>
+                <input type="text" id="address" name="job_address">
+              </td>
+              <td id="dollar">
+                $
+              </td>
+              <td>
+                <input type="text" id="price" name="job_price">
+              </td>
+              <td>
+                <select id="confirm" name="job_confirm">
+                  <option value="yes">Yes</option>
+                  <option value="no"  selected="selected">No</option>            
+                  <option value="message">Left Message</option>
+                </select>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <table>
+          <tr>
+            <td>
+              <textarea rows="4" cols="78" placeholder="Notes..."></textarea>
+            </td>
+            <td>
+              <input type="submit" id="submit" name="job_submit" value="Add">
+            </td>
+            <td>
+              <p>Hit button to add to list below</p>
+            </td>
+          <tfoot>
+            <tr>
+              <td colspan="5">Nothing is set until you hit submit...</td>
+            </tr>
+          </tfoot>
+          </tr>        
+        </table>
+      </fieldset>
+    </form>
+<!-- FOOTER CONTENT -->      
+    </div>
+
+	<div class="footer">
+
+		<div class="wrapper">
+
+			<ul>		
+				<li><a href="http://twitter.com/treehouse">Twitter</a></li>
+				<li><a href="https://www.facebook.com/TeamTreehouse">Facebook</a></li>
+			</ul>
+
+			<p>&copy;2015 Modern Horticulture Services, Inc.</p>
+
+		</div>
+	
+	</div>
+
+</body>
+</html>
