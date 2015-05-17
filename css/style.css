@@ -559,7 +559,7 @@ fieldset legend {
     width: 200px; 
 }
 
-#price {
+.price {
     max-width: 60px; 
 }
 
@@ -571,7 +571,7 @@ form td p {
     padding-left: 10px;
 }
 
-form th {
+fieldset th {
     width: 10px;
     /*border-right: 1px solid #CCC;*/
     text-align: left;
@@ -579,8 +579,17 @@ form th {
     padding: 8px;
 }
 
-.datepicker {
-  z-index: 0;
+/* Edit Job */
+ol li input[type=text] {
+  display:none;
+}
+
+ol li.editMode input[type=text] {
+  display:block;
+}
+
+ol li.editMode label {
+  display:none;
 }
 
 .breadcrumb {

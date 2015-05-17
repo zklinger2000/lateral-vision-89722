@@ -28,7 +28,7 @@ below is where the icon on the tab in the browser goes
 <!-- MAIN BODY CONTENT -->
   <div class="wrapper">
     <fieldset>
-      <legend>Add new job</legend>
+      <legend>Add new jobs</legend>
       <table>
         <thead>
           <th scope="col">Date</th>
@@ -36,7 +36,7 @@ below is where the icon on the tab in the browser goes
           <th scope="col">Customer Name</th>
           <th scope="col">Address</th>
           <th scope="col"> </th>
-          <th scope="col">Price</th>
+          <th scope="col" class="price">Price</th>
           <th scope="col">Confirmed</th>
         </thead>
         <tbody>
@@ -57,7 +57,7 @@ below is where the icon on the tab in the browser goes
               </select>
             </td>
             <td>
-              <input type="text" id="add_name">
+              <input type="text" id="add_customer">
             </td>
             <td>
               <input type="text" id="add_address">
@@ -66,7 +66,7 @@ below is where the icon on the tab in the browser goes
               $
             </td>
             <td>
-              <input type="text" id="add_price">
+              <input type="text" id="add_price" class="price">
             </td>
             <td>
               <select id="add_confirm">
@@ -98,6 +98,19 @@ below is where the icon on the tab in the browser goes
       </table>
     </fieldset>
   </div>
+  <div class="wrapper">
+    <fieldset class="temp_jobs">
+      <legend>Temp List</legend>
+      <ol id="temp_job_list">
+        <!--
+        <li><label class="temp_customer"><Bob Smith></label>
+            <input type="text" class="temp_customer">
+            <button class="edit">Edit</button><button class="delete">Delete</button>
+        </li>
+        -->
+      </ol>
+    </fieldset>
+  </div>
 <!-- FOOTER CONTENT -->    
 </div>
 <div class="footer">
@@ -109,5 +122,6 @@ below is where the icon on the tab in the browser goes
     <p>&copy; 2015 Modern Horticulture Services, Inc.</p>
   </div>
 </div>
+<script type="text/javascript" src="js/add_job.js"></script>
 </body>
 </html>
