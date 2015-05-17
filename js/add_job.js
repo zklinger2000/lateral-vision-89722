@@ -60,6 +60,8 @@ var add_temp_job = function() {
 	//append list_item to temp_job_list
 	temp_job_list.appendChild(list_item);
 	bind_job_events(list_item);
+	//clearing the fields after adding the job to the temp job list
+	add_customer.value = "";
 }
 
 //=========================================================================
