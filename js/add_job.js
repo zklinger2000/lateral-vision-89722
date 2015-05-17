@@ -27,9 +27,10 @@ var create_temp_job = function() {
   var delete_button = document.createElement("button");		//<button>
 
   //Each element needs to be modifiable
-	cust_label.className = "temp_customer";
-  edit_cust_label.type = "text";
-	edit_cust_label.className = "temp_customer";
+  cust_label.id = "cust_label";
+	edit_cust_label.type = "text";
+	edit_cust_label.id = "edit_customer";
+	//
   if (typeof edit_button.innerText === "undefined") {
     edit_button.textContent = "Edit";
   } else {
@@ -83,8 +84,8 @@ var edit_temp_job = function() {
   console.log("Edit task...");
   
   var list_item = this.parentNode;
-  var edit_customer = list_item.querySelector(".temp_customer");
-  var cust_label = list_item.querySelector("label.temp_customer");
+  var edit_customer = list_item.querySelector("#edit_customer");
+  var cust_label = list_item.querySelector("#cust_label");
   
   //if the class of the parent is .editMode
   if (list_item.classList.contains("edit_mode")) {

@@ -551,11 +551,11 @@ fieldset legend {
 }
 */
 
-#name {
+#add_name {
     width: 200px; 
 }
 
-#address {
+#add_address {
     width: 200px; 
 }
 
@@ -584,11 +584,11 @@ ol li input[type=text] {
   display:none;
 }
 
-ol li.editMode input[type=text] {
+ol li.edit_mode input[type=text] {
   display:block;
 }
 
-ol li.editMode label {
+ol li.edit_mode label {
   display:none;
 }
 
