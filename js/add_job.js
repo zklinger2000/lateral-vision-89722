@@ -27,7 +27,9 @@ var create_temp_job = function() {
   var delete_button = document.createElement("button");		//<button>
 
   //Each element needs to be modifiable
+	cust_label.className = "temp_customer";
   edit_cust_label.type = "text";
+	edit_cust_label.className = "temp_customer";
   if (typeof edit_button.innerText === "undefined") {
     edit_button.textContent = "Edit";
   } else {
@@ -81,7 +83,7 @@ var edit_temp_job = function() {
   console.log("Edit task...");
   
   var list_item = this.parentNode;
-  var edit_customer = list_item.querySelector("input[type=text]");
+  var edit_customer = list_item.querySelector(".temp_customer");
   var cust_label = list_item.querySelector("label.temp_customer");
   
   //if the class of the parent is .editMode
