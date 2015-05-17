@@ -6,6 +6,8 @@
 
 //the customer name
 var add_customer = document.getElementById("add_customer");
+//the address
+var add_address = document.getElementById("add_address");
 //the button that adds jobs to the temporary list
 var add_button = document.getElementById("add_button");
 //the <ol> of temporary jobs to add to Google Calendar
@@ -20,30 +22,40 @@ var temp_job_list = document.getElementById("temp_job_list");
 var create_temp_job = function() {
 //=========================================================================
   //VARIABLES
-  var list_item = document.createElement("li");						//<li>
-  var cust_label = document.createElement("label");				//<label>
-  var edit_cust_label = document.createElement("input");	//<input>
-  var edit_button = document.createElement("button");			//<button>
-  var delete_button = document.createElement("button");		//<button>
+  var list_item = document.createElement("li");							//<li>
+  var cust_label = document.createElement("label");					//<label>
+  var edit_cust_label = document.createElement("input");		//<input>
+  var address_label = document.createElement("label");			//<label>
+  var edit_address_label = document.createElement("input");	//<input>
+  var edit_button = document.createElement("button");				//<button>
+  var delete_button = document.createElement("button");			//<button>
 
-  //Each element needs to be modifiable
+  //set up customer name label and input
   cust_label.id = "cust_label";
 	edit_cust_label.type = "text";
 	edit_cust_label.id = "edit_customer";
-	//
+	//set up address label and input
+	address_label.id = "address_label";
+	edit_address_label.type = "text";
+	edit_address_label.id = "edit_address";
+	//set up 'Edit' button
   if (typeof edit_button.innerText === "undefined") {
     edit_button.textContent = "Edit";
   } else {
     edit_button.innerText = "Edit";
   }
   edit_button.className = "edit";
+	//set up 'Delete' button
   delete_button.innerText = "Delete";
   delete_button.className = "delete";
   cust_label.innerText = add_customer.value;
+  address_label.innerText = add_address.value;
   
   //Each element needs to be appended
   list_item.appendChild(cust_label);
   list_item.appendChild(edit_cust_label);
+  list_item.appendChild(address_label);
+  list_item.appendChild(edit_address_label);
   list_item.appendChild(edit_button);
   list_item.appendChild(delete_button);
   
@@ -62,6 +74,7 @@ var add_temp_job = function() {
 	bind_job_events(list_item);
 	//clearing the fields after adding the job to the temp job list
 	add_customer.value = "";
+	add_address.value = "";
 }
 
 //=========================================================================
@@ -88,16 +101,20 @@ var edit_temp_job = function() {
   var list_item = this.parentNode;
   var edit_customer = list_item.querySelector("#edit_customer");
   var cust_label = list_item.querySelector("#cust_label");
+  var edit_address = list_item.querySelector("#edit_address");
+  var address_label = list_item.querySelector("#address_label");
   
   //if the class of the parent is .editMode
   if (list_item.classList.contains("edit_mode")) {
     //Switch from .editMode
     //label text becomes the input's value
     cust_label.innerText = edit_customer.value;
+    address_label.innerText = edit_address.value;
   } else {
     //Switch to .editMode
     //input value becomes the label's text
     edit_customer.value = cust_label.innerText;
+    edit_address.value = address_label.innerText;
   }
   //Toggle .editMode on the parent <li>
   list_item.classList.toggle("edit_mode");
