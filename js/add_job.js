@@ -28,6 +28,12 @@ var create_temp_job = function() {
   //VARIABLES
   var list_item = document.createElement("li");							//<li>
 	var edit_crew = document.createElement("select");					//<select>
+	var group_foreman = document.createElement("optgroup");		//<select>
+	var opt_gary = document.createElement("option");					//<select>
+	var opt_ken = document.createElement("option");						//<select>
+	var opt_xcrew = document.createElement("option");					//<select>
+	var group_all = document.createElement("optgroup");				//<select>
+	var opt_all = document.createElement("option");						//<select>
   var cust_label = document.createElement("label");					//<label>
   var edit_cust_label = document.createElement("input");		//<input>
   var address_label = document.createElement("label");			//<label>
@@ -42,7 +48,19 @@ var create_temp_job = function() {
   console.log(add_crew.value);
 	edit_crew.type = "select";
 	edit_crew.id = "edit_crew";
-	
+	group_foreman.label = "Foreman";
+	edit_crew.appendChild(group_foreman);
+/*
+	edit_crew.<optgroup label="Foreman">' + 
+												'<option value="gary">Gary</option>' +
+                  			'<option value="ken">Ken</option>' +
+                 				'<option value="x_crew">The Incredible Bulk</option>' +
+                				'</optgroup>' +
+                				'<optgroup label="Everyone">' +
+                 				'<option value="all_crews">All Crews</option>' +
+                				'</optgroup>';
+	*/
+
   //set up customer name label and input
 	edit_text_input("cust", cust_label, edit_cust_label, add_customer);
 	//set up address label and input
