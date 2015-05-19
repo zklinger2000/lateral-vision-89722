@@ -4,11 +4,13 @@
 //VARIABLES
 //=========
 
-//the customer name
+//the crew name element
+var add_crew = document.getElementById("add_crew");
+//the customer name element
 var add_customer = document.getElementById("add_customer");
-//the address
+//the address element
 var add_address = document.getElementById("add_address");
-//the price
+//the price element
 var add_price = document.getElementById("add_price");
 //the button that adds jobs to the temporary list
 var add_button = document.getElementById("add_button");
@@ -16,15 +18,16 @@ var add_button = document.getElementById("add_button");
 var temp_job_list = document.getElementById("temp_job_list");
 
 
-//==========
-//PROTOTYPES
-//==========
+//=========
+//FUNCTIONS
+//=========
 
 //=========================================================================
 var create_temp_job = function() {
 //=========================================================================
   //VARIABLES
   var list_item = document.createElement("li");							//<li>
+	var edit_crew = document.createElement("select");					//<select>
   var cust_label = document.createElement("label");					//<label>
   var edit_cust_label = document.createElement("input");		//<input>
   var address_label = document.createElement("label");			//<label>
@@ -35,24 +38,20 @@ var create_temp_job = function() {
   var edit_button = document.createElement("button");				//<button>
   var delete_button = document.createElement("button");			//<button>
 
+	//set up crew select group
+  console.log(add_crew.value);
+	edit_crew.type = "select";
+	edit_crew.id = "edit_crew";
+	
   //set up customer name label and input
-  cust_label.id = "cust_label";
-  cust_label.innerText = add_customer.value;
-	edit_cust_label.type = "text";
-	edit_cust_label.id = "edit_customer";
+	edit_text_input("cust", cust_label, edit_cust_label, add_customer);
 	//set up address label and input
-	address_label.id = "address_label";
-  address_label.innerText = add_address.value;
-	edit_address_label.type = "text";
-	edit_address_label.id = "edit_address";
+	edit_text_input("address", address_label, edit_address_label, add_address);
 	//set up '$'
 	dollar_sign.className = "dollar";
 	dollar_sign.innerText = "$";
 	//set up price label and input
-	price_label.id = "price_label";
-  price_label.innerText = add_price.value;
-	edit_price_label.type = "text";
-	edit_price_label.id = "edit_price";
+	edit_text_input("price", price_label, edit_price_label, add_price);
 	//set up 'Edit' button
   if (typeof edit_button.innerText === "undefined") {
     edit_button.textContent = "Edit";
@@ -61,10 +60,15 @@ var create_temp_job = function() {
   }
   edit_button.className = "edit";
 	//set up 'Delete' button
-  delete_button.innerText = "Delete";
+  if (typeof delete_button.innerText === "undefined") {
+    delete_button.textContent = "Delete";
+  } else {
+    delete_button.innerText = "Delete";
+  }
   delete_button.className = "delete";
   
   //Each element needs to be appended
+  list_item.appendChild(edit_crew);
   list_item.appendChild(cust_label);
   list_item.appendChild(edit_cust_label);
   list_item.appendChild(address_label);
@@ -76,6 +80,16 @@ var create_temp_job = function() {
   list_item.appendChild(delete_button);
   
   return list_item;
+}
+
+//=========================================================================
+var edit_text_input = function(name, label, edit_label, element) {
+//=========================================================================
+  //set up label and input
+  label.id = name + "_label";
+  label.innerText = element.value;
+	edit_label.type = "text";
+	edit_label.id = "edit_" + name;
 }
 
 //=========================================================================
@@ -116,8 +130,9 @@ var edit_temp_job = function() {
   console.log("Edit task...");
   
   var list_item = this.parentNode;
+  var edit_crew = list_item.querySelector("#edit_crew");
   var cust_label = list_item.querySelector("#cust_label");
-  var edit_customer = list_item.querySelector("#edit_customer");
+  var edit_cust = list_item.querySelector("#edit_cust");
   var address_label = list_item.querySelector("#address_label");
   var edit_address = list_item.querySelector("#edit_address");
   var price_label = list_item.querySelector("#price_label");
@@ -127,13 +142,15 @@ var edit_temp_job = function() {
   if (list_item.classList.contains("edit_mode")) {
     //Switch from .editMode
     //label text becomes the input's value
-    cust_label.innerText = edit_customer.value;
+    cust_label.innerText = edit_cust.value;
     address_label.innerText = edit_address.value;
     price_label.innerText = edit_price.value;
   } else {
     //Switch to .editMode
     //input value becomes the label's text
-    edit_customer.value = cust_label.innerText;
+		//
+		//edit_crew.value....
+    edit_cust.value = cust_label.innerText;
     edit_address.value = address_label.innerText;
     edit_price.value = price_label.innerText;
   }
@@ -159,9 +176,10 @@ var ajaxRequest = function() {
   console.log("AJAX request"); 
 }
 
-//==============
-//MAIN ALGORITHM
-//==============
+
+//==========
+//PAGE SETUP
+//==========
 
 //Set the click-handler to the addTask function
 add_button.addEventListener("click", add_temp_job);
